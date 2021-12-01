@@ -1,0 +1,16 @@
+/** ------------ Timer ------------ */
+.timer{
+  margin-top: 2rem;
+  font-size: 4rem;
+  color: #fff;
+}
+
+.timer__value{
+  padding: 1rem;
+  background-color: #b90202;
+  border-radius: 1rem;
+}
+
+.timer__separator{
+  padding: 0 0.25rem;
+}

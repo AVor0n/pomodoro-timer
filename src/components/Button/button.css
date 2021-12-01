@@ -1,0 +1,27 @@
+
+.btn{
+  width: 4rem;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+  font-size: 3rem;
+  line-height: 3rem;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+.btn:hover{
+  filter: drop-shadow(0 0 20px rgb(66, 66, 66));
+}
+
+.btn--primary{
+  background-color: #ffe604;
+  color: #d40303;
+}
+.btn--primary:hover{
+  filter: drop-shadow(0 0 20px red);
+}
