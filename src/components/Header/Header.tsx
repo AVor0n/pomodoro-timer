@@ -1,5 +1,11 @@
 import { useContext } from "react";
-import { closeSettings, openSettings } from "../../ts/actionCreators";
+import {
+  closeSettings,
+  openSettings,
+  setMinutes,
+  setSeconds,
+  setTimerMode,
+} from "../../ts/actionCreators";
 import context from "../../ts/context";
 import Button from "../Button/Button";
 import "./header.css";
@@ -13,6 +19,10 @@ function Header() {
 
   function closeSettingsPage() {
     dispatch(closeSettings());
+
+    dispatch(setMinutes(state.sesionLength));
+    dispatch(setSeconds(0));
+    dispatch(setTimerMode("work"));
   }
 
   return (
