@@ -11,13 +11,16 @@ import {
   stopTimer,
 } from "../../ts/actionCreators";
 import context from "../../ts/context";
+import soundUrl from "../../assets/Beep.mp3";
 
 function Home() {
   const [state, dispatch] = useContext(context);
+  const audio = new Audio(soundUrl);
 
   let min: number = state.min;
   let sec: number = state.sec;
   let mode: "work" | "break" = state.mode;
+
   // timerTick() не работает, если использовать state.min и state.sec без промежуточных переменных
   function timerTick() {
     if (sec !== 0) {
@@ -42,7 +45,7 @@ function Home() {
   // }, [state.timerId]);
 
   function timerBeep() {
-    console.log("Beeeeeeep!");
+    audio.play();
   }
   function timerSwitchMode() {
     if (mode === "work") {
