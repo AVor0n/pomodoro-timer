@@ -1,4 +1,5 @@
 export type State = {
+  isSettingsOpen: boolean;
   timerId: number | undefined;
   min: number;
   sec: number;
@@ -7,6 +8,7 @@ export type State = {
 };
 
 export const initialState: State = {
+  isSettingsOpen: false,
   timerId: undefined,
   sesionLength: 25,
   breakLength: 5,

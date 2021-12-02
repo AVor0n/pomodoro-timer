@@ -6,6 +6,12 @@ export type ActionTypes = ReturnType<InferValueTypes<typeof actionCreators>>;
 
 export function reducer(state: State, action: ActionTypes): State {
   switch (action.type) {
+    case "OPEN_SETTINGS":
+      return { ...state, isSettingsOpen: true };
+
+    case "CLOSE_SETTINGS":
+      return { ...state, isSettingsOpen: false };
+
     case "START_TIMER":
       return { ...state, timerId: action.timerId };
 

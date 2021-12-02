@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/Home/Home";
+import SettingsPage from "./pages/Settings/Settings";
 import context from "./ts/context";
 import { reducer } from "./ts/reducer";
 import { initialState } from "./ts/state";
@@ -13,7 +14,7 @@ function App() {
     <context.Provider value={[state, dispatch]}>
       <div className="app">
         <Header />
-        <HomePage />
+        {state.isSettingsOpen ? <SettingsPage /> : <HomePage />}
       </div>
     </context.Provider>
   );

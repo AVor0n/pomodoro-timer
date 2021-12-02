@@ -32,3 +32,13 @@ export const setBreakLength = (breakLength: number) =>
     type: "SET_BREAK_LENGTH",
     breakLength: breakLength,
   };
+
+export const openSettings = () =>
+  <const>{
+    type: "OPEN_SETTINGS",
+  };
+
+export const closeSettings = () =>
+  <const>{
+    type: "CLOSE_SETTINGS",
+  };
