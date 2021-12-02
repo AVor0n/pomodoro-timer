@@ -20,7 +20,7 @@
 
 .btn--primary{
   background-color: #ffe604;
-  color: #d40303;
+  color: #000;
 }
 .btn--primary:hover{
   filter: drop-shadow(0 0 20px red);

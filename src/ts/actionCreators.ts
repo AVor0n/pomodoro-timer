@@ -21,16 +21,24 @@ export const setSeconds = (sec: number) =>
     sec: sec,
   };
 
-export const setSessionLength = (sessionLength: number) =>
+export const incrementSessionLength = () =>
   <const>{
-    type: "SET_SESSION_LENGTH",
-    sesionLength: sessionLength,
+    type: "INCREMENT_SESSION_LENGTH",
   };
 
-export const setBreakLength = (breakLength: number) =>
+export const decrementSessionLength = () =>
   <const>{
-    type: "SET_BREAK_LENGTH",
-    breakLength: breakLength,
+    type: "DECREMENT_SESSION_LENGTH",
+  };
+
+export const incrementBreakLength = () =>
+  <const>{
+    type: "INCREMENT_BREAK_LENGTH",
+  };
+
+export const decrementBreakLength = () =>
+  <const>{
+    type: "DECREMENT_BREAK_LENGTH",
   };
 
 export const openSettings = () =>

@@ -18,11 +18,29 @@ export function reducer(state: State, action: ActionTypes): State {
     case "STOP_TIMER":
       return { ...state, timerId: undefined };
 
-    case "SET_BREAK_LENGTH":
-      return { ...state, breakLength: action.breakLength };
+    case "INCREMENT_BREAK_LENGTH":
+      return {
+        ...state,
+        breakLength: state.breakLength < 25 ? state.breakLength + 1 : state.breakLength,
+      };
 
-    case "SET_SESSION_LENGTH":
-      return { ...state, sesionLength: action.sesionLength };
+    case "DECREMENT_BREAK_LENGTH":
+      return {
+        ...state,
+        breakLength: state.breakLength > 1 ? state.breakLength - 1 : state.breakLength,
+      };
+
+    case "INCREMENT_SESSION_LENGTH":
+      return {
+        ...state,
+        sesionLength: state.sesionLength < 25 ? state.sesionLength + 1 : state.sesionLength,
+      };
+
+    case "DECREMENT_SESSION_LENGTH":
+      return {
+        ...state,
+        sesionLength: state.sesionLength > 1 ? state.sesionLength - 1 : state.sesionLength,
+      };
 
     case "SET_MINUTES":
       return { ...state, min: action.min };
