@@ -17,7 +17,10 @@ function Header() {
 
   return (
     <header className="header">
-      <Button action={state.isSettingsOpen ? closeSettingsPage : openSettingsPage}>
+      <Button
+        action={state.isSettingsOpen ? closeSettingsPage : openSettingsPage}
+        disable={!!state.timerId}
+      >
         {state.isSettingsOpen ? "↩" : "⚙"}
       </Button>
     </header>

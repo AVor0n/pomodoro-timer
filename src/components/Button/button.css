@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 .btn:hover{
-  filter: drop-shadow(0 0 20px rgb(66, 66, 66));
+  filter: drop-shadow(0 0 20px #7c7c7c);
 }
 
 .btn--primary{
@@ -24,4 +24,8 @@
 }
 .btn--primary:hover{
   filter: drop-shadow(0 0 20px red);
+}
+.btn:disabled{
+  filter: grayscale(100%);
+  color: #7c7c7c;
 }
