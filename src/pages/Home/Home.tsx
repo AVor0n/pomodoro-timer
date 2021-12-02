@@ -98,9 +98,12 @@ function Home() {
         <Button primary action={state.timerId ? btnStopClick : btnStartClick}>
           {state.timerId ? "⏸" : "🞂"}
         </Button>
-        <Button primary action={btnResetClick}>
-          🗘
-        </Button>
+
+        {title === "Pause" ? (
+          <Button primary action={btnResetClick}>
+            🗘
+          </Button>
+        ) : null}
       </div>
     </div>
   );
