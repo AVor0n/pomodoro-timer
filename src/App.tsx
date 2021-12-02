@@ -10,9 +10,10 @@ import { initialState } from "./ts/state";
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const bgAppColor = !state.timerId ? "#ffffff" : state.mode === "work" ? "#ff9204" : "#1d1e20";
   return (
     <context.Provider value={[state, dispatch]}>
-      <div className="app">
+      <div className="app" style={{ backgroundColor: bgAppColor }}>
         <Header />
         {state.isSettingsOpen ? <SettingsPage /> : <HomePage />}
       </div>

@@ -48,6 +48,9 @@ export function reducer(state: State, action: ActionTypes): State {
     case "SET_SECONDS":
       return { ...state, sec: action.sec };
 
+    case "SET_TIMER_MODE":
+      return { ...state, mode: action.mode };
+
     default:
       return state;
   }

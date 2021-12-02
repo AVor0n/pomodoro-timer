@@ -6,6 +6,7 @@ import { useContext, useEffect } from "react";
 import {
   setMinutes,
   setSeconds,
+  setTimerMode,
   startTimer,
   stopTimer,
 } from "../../ts/actionCreators";
@@ -16,6 +17,7 @@ function Home() {
 
   let min: number = state.min;
   let sec: number = state.sec;
+  let mode: "work" | "break" = state.mode;
   // timerTick() не работает, если использовать state.min и state.sec без промежуточных переменных
   function timerTick() {
     if (sec !== 0) {
@@ -25,23 +27,34 @@ function Home() {
       dispatch(setMinutes((min -= 1)));
       dispatch(setSeconds((sec = 59)));
     } else {
-      dispatch(stopTimer());
+      // dispatch(stopTimer());
+      timerSwitchMode();
       timerBeep();
     }
   }
 
-  useEffect(() => {
-    return function () {
-      if (state.timerId) {
-        clearInterval(state.timerId);
-      }
-    };
-  }, [state.timerId]);
+  // useEffect(() => {
+  //   return function () {
+  //     if (state.timerId) {
+  //       clearInterval(state.timerId);
+  //     }
+  //   };
+  // }, [state.timerId]);
 
   function timerBeep() {
     console.log("Beeeeeeep!");
   }
-
+  function timerSwitchMode() {
+    if (mode === "work") {
+      min = state.breakLength;
+      mode = "break";
+      dispatch(setTimerMode(mode));
+    } else {
+      min = state.sesionLength;
+      mode = "work";
+      dispatch(setTimerMode(mode));
+    }
+  }
   const btnStartClick = () => {
     const timerId = setInterval(() => timerTick(), 100);
     dispatch(startTimer(timerId));
@@ -54,13 +67,25 @@ function Home() {
 
   const btnResetClick = () => {
     const defaultMin = state.sesionLength;
+
     dispatch(setMinutes(defaultMin));
     dispatch(setSeconds(0));
+    dispatch(setTimerMode("work"));
   };
+
+  let title = !state.timerId
+    ? state.sec === 0 && state.min === state.sesionLength
+      ? "Get Ready"
+      : "Pause"
+    : state.mode;
+
+  let titleColor = title === "break" ? "#fff" : "#000";
 
   return (
     <div className="home__wrapper">
-      <h2 className="home__title">Get Ready</h2>
+      <h2 className="home__title" style={{ color: titleColor }}>
+        {title}
+      </h2>
 
       <TomatoContainer>
         <Timer min={state.min} sec={state.sec} />

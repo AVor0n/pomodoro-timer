@@ -50,3 +50,9 @@ export const closeSettings = () =>
   <const>{
     type: "CLOSE_SETTINGS",
   };
+
+export const setTimerMode = (mode: "work" | "break") =>
+  <const>{
+    type: "SET_TIMER_MODE",
+    mode: mode,
+  };
