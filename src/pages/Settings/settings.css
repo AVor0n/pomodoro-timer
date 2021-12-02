@@ -14,6 +14,7 @@
 .settings-option__wrapper{
   color: #ffffff;
   position: relative;
+  z-index: 2;
 }
 
 .settings-option__title{
@@ -37,6 +38,7 @@
   line-height: 2rem;
   width: 2rem;
   text-align: center;
+  z-index: 1;
 }
 
 .settings-option__background {
