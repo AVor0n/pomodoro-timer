@@ -1,5 +1,11 @@
 .header{
-  display: flex;
-  flex-direction: row-reverse;
-  margin: 2rem 0;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+@media (max-width: 500px) {
+  .header{
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 }

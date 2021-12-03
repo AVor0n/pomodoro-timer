@@ -14,8 +14,10 @@ function App() {
   return (
     <context.Provider value={[state, dispatch]}>
       <div className="app" style={{ backgroundColor: bgAppColor }}>
-        <Header />
-        {state.isSettingsOpen ? <SettingsPage /> : <HomePage />}
+        <div className="app__wrapper">
+          <Header />
+          {state.isSettingsOpen ? <SettingsPage /> : <HomePage />}
+        </div>
       </div>
     </context.Provider>
   );

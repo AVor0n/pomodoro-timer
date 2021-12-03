@@ -1,14 +1,14 @@
 /** ------------ Timer ------------ */
 .timer{
-  margin-top: 2rem;
-  font-size: 4rem;
+  margin-top: calc(var(--size)*0.1);
+  font-size: calc(var(--size)*0.2);
   color: #fff;
 }
 
 .timer__value{
-  padding: 1rem;
+  padding: calc(var(--size)*0.05);
+  border-radius: calc(var(--size)*0.05);
   background-color: #b90202;
-  border-radius: 1rem;
 }
 
 .timer__separator{
