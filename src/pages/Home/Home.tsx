@@ -12,6 +12,9 @@ import {
 } from "../../ts/actionCreators";
 import context from "../../ts/context";
 import soundUrl from "../../assets/Beep.mp3";
+import playSvg from "../../assets/play.svg";
+import pauseSvg from "../../assets/pause.svg";
+import resetSvg from "../../assets/restart.svg";
 
 function Home() {
   const [state, dispatch] = useContext(context);
@@ -96,12 +99,12 @@ function Home() {
 
       <div className="buttons">
         <Button primary action={state.timerId ? btnStopClick : btnStartClick}>
-          {state.timerId ? "⏸" : "🞂"}
+          <img src={state.timerId ? pauseSvg : playSvg} />
         </Button>
 
         {title === "Pause" ? (
           <Button primary action={btnResetClick}>
-            🗘
+            <img src={resetSvg} />
           </Button>
         ) : null}
       </div>

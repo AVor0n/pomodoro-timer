@@ -9,6 +9,8 @@ import {
 import context from "../../ts/context";
 import Button from "../Button/Button";
 import "./header.css";
+import settingsSvg from "../../assets/settings.svg";
+import backSvg from "../../assets/back.svg";
 
 function Header() {
   const [state, dispatch] = useContext(context);
@@ -31,7 +33,7 @@ function Header() {
         action={state.isSettingsOpen ? closeSettingsPage : openSettingsPage}
         disable={!!state.timerId}
       >
-        {state.isSettingsOpen ? "↩" : "⚙"}
+        <img src={state.isSettingsOpen ? backSvg : settingsSvg} />
       </Button>
     </header>
   );
