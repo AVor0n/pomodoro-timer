@@ -7,3 +7,4 @@
 ## Используемые технологии:
 - React
 - TypeScript
+- Vite
